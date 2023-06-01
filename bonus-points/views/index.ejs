@@ -1,0 +1,40 @@
+<%- include('./partials/header.ejs'); -%>
+    <div class="container">
+      <div class="header text-center">
+        <h1>Demo App</h1>
+        <p>Bonus Challenge</p>
+      </div>
+
+      <div class="wrapper">
+        <form action="/signup" method="post" class="my-4 form-inline">
+          <label for="fullURL" class="visually-hidden">Signup</label>
+          <input
+            type="text"
+            name="nickname"
+            id="nickname"
+            placeholder="Enter your nickname"
+            required
+            class="form-control mr-2 col"
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            minlength="5"
+            maxlength="15"
+            class="form-control mr-2 col"
+          />
+          <br />
+          <div class="text-center d-grid gap-2">
+            <button type="submit" class="btn btn-warning">Signup</button>
+          </div>
+        </form>
+        <div class="text-center">
+          <p>Already have an account? <a href="/login" class="btn btn-primary">Login</a></p>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./partials/footer.ejs'); -%>

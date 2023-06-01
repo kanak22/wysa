@@ -1,0 +1,33 @@
+<%- include('./partials/header.ejs'); -%>
+
+<div class="container">
+  <h1>All Articles</h1>
+  <% if (articles.length === 0) { %>
+    <p>No articles found.</p>
+  <% } else { %>
+    <ul class="list-group">
+      <% articles.forEach(function(article) { %>
+        <li class="list-group-item">
+          <h3><%= article.title %></h3>
+          <% if (article.description.length > 200) { %>
+            <p><%= article.description.substring(0, 200) %>...</p>
+            <strong class="text-bold">Buy premium to read more</strong>
+            <a href="#" class="read-more disabled" style="color:grey" onclick="return false;">Read more</a>          
+          <% } else { %>
+            <p><%= article.description %></p>
+          <% } %>
+          <% if (article.authorID && article.authorID.nickname) { %>
+            <p>Author: <%= article.authorID.nickname %></p>
+          <% } else { %>
+            <p>Author: N/A</p>
+          <% } %>
+        </li>
+      <% }); %>
+    </ul>
+  <% } %>
+  <br/>
+  <a href="/home" class="btn btn-primary">Back to Home</a>
+</div>
+
+<!-- Include the footer partial -->
+<%- include('./partials/footer.ejs'); -%>
